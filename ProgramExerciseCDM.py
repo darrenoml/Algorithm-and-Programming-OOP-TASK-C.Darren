@@ -2,7 +2,7 @@ class Inventory:
     def __init__(self, food, amount):
         self.__food = food
         self.__amount = amount
-        self.__unit_price = PriceList()
+        self.__unit_price = 0
         self.__total_price = 0
 
     def PriceList(self):
@@ -20,8 +20,18 @@ class Inventory:
         return dict.get(self.__food, 0)
 
     def calculate(self):
-        self.__total_price = self.__amount *  self.__unit_price
+        self.__total_price = self.__amount *  self.PriceList()
         return self.__total_price
     
+    def get_food(self):
+        return self.__food
 
+    def get_amount(self):
+        return self.__amount
+
+    def get_unit_price(self):
+        return self.__unit_price
+
+    def get_calculated_price(self):
+        return self.__total_price
 
